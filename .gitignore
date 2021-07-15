@@ -1,0 +1,10 @@
+.idea/
+/public/vendor
+/public/composer.phar
+/public/migration.sql
+/public/.dbdiff
+.DS_Store
+Thumbs.db
+/public/dist
+.env
+db-data

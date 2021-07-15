@@ -1,0 +1,28 @@
+version: "3"
+services:
+  php:
+    build:
+        context: server
+        dockerfile: Dockerfile
+        args:
+          PHP_VERSION: ${PHP_VERSION}
+    image: phpdbdiff:latest
+    container_name: phpdbdiff
+    ports:
+        - '9091:80'
+    volumes:
+        - ./public:/var/www/html
+        - ./server/php.ini:/usr/local/etc/php/conf.d/overrides.ini
+        - ./server/entrypoint.sh:/var/www/html/entrypoint.sh
+
+  mysql56:
+    image: mysql:${MYSQL_VERSION}
+    container_name: mysqldb
+    restart: unless-stopped
+    ports:
+      - "3356:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+      - ./db-data:/var/lib/mysql
