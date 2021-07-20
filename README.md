@@ -4,7 +4,7 @@
 
 Create .env file based on .env.example
 
-Under public directory create .dbdiff file based on .dbdiff.example. Add user, password, port and host. 
+Under public directory to create .dbdiff file based on .dbdiff.example. Add user, password, port and host. 
 
 This example is using MySQL v5.6 so server configuration of .dbdiff will look like the following.
 
